@@ -5,7 +5,41 @@
   <title>RCS LOGIN</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+	<script>
+		<script>
+    function validate(){
+        var userName= document.forms.rcsForm.signup-username.value;
+        var userEmail= document.forms.rcsForm.signup-email.value;
+        var userPassword= document.forms.rcsForm.signup-password.value;
 
+        var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+?)*(\.\w{2,3})+$/g; //Javascript reGex for email validation
+        var regName= /\d+$/g; //Javascript regEx for name
+        var regPhone=/^\d{10}$/;//Javascript reGex for phone
+
+        if(userName==""|| regName.test(userName)){
+            window.alert("Please enter your name!");
+            signup-username.focus();
+            return false;
+        }
+        if(userEmail=="" || regEmail.test()){
+            window.alert("Please a valid email address!!"){
+                signup-email.focus();
+                return false;
+            }
+            if(userPassword==""){
+                alert('Please Email properly')
+                signup-password.focus();
+                return false;
+            }
+		if(userPassword.length<6){
+			alert("Your password has to be at least 6 characters long!");
+			signup-password.focus();
+			return false;
+		}
+                return false;
+    
+    }
+</script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -53,24 +87,24 @@
 			</div>
 
 			<div id="signup">
-				<form class="form">
+				<form class="form" name="rcsForm" method="" action="" onsubmit="return validate()">
 					<p class="fieldset">
 						<label class="image-replace username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
-						<span class="error-message">Your username can only contain numeric and alphabetic symbols!</span>
+						<input class="full-width has-padding has-border" name="signup-username" id="signup-username" type="text" placeholder="Username">
+						<!--<span class="error-message">Your username can only contain numeric and alphabetic symbols!</span>-->
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
-						<span class="error-message">Enter a valid email address!</span>
+						<input class="full-width has-padding has-border" name="signup-email" id="signup-email" type="email" placeholder="E-mail">
+						<!--<span class="error-message">Enter a valid email address!</span>-->
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace password" for="signup-password">Password</label>
 						<input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="Password">
 						<a href="#0" class="hide-password">Show</a>
-						<span class="error-message">Your password has to be at least 6 characters long!</span>
+						<!--<span class="error-message">Your password has to be at least 6 characters long!</span>-->
 					</p>
 
 					<p class="fieldset">
